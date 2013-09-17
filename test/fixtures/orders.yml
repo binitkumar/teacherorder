@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  teacher_name: MyString
+  teacher_email: MyString
+  student_first_name: MyString
+  student_last_name: MyString
+  item: MyString
+  quantity: 9.99
+  total: 9.99
+
+two:
+  teacher_name: MyString
+  teacher_email: MyString
+  student_first_name: MyString
+  student_last_name: MyString
+  item: MyString
+  quantity: 9.99
+  total: 9.99

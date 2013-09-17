@@ -1,0 +1,16 @@
+<%= simple_form_for @order, :html => { :class => 'form-horizontal' } do |f| %>
+ 
+      <%= f.input :teacher_name %>
+      <%= f.input :teacher_email %>
+      <%= f.input :student_first_name %>
+      <%= f.input :student_last_name %>
+      <%= f.input :item, :collection => ['Chocolate Chunk', 'M & M', 'Peanut Butter', 'Oatmeal Raisin', 'Sugar', 'Monster', 'White Choc Mac', 'PB w/Choc Chunks', 'Triple Choc', 'Snickerdoodle', 'Heath Butter Toffee' ] %>
+      <%= f.input :quantity %>
+      <%= f.input :total %>
+    
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                orders_path, :class => 'btn' %>
+  </div>
+<% end %>

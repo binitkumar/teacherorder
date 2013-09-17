@@ -1,0 +1,23 @@
+<%= form_for @order, :html => { :class => "order-form" } do |f| %>
+    <h2>Teacher email</h2>
+    <%= f.text_field :teacher_email, readonly: true, value: @teacher.teacher_email %>
+    <div class="field">
+      <h2>Vendor</h2>
+      <ol class="vendors-container">
+        <%= f.nested_fields_for :vendors, render_template: false, new_item_index: 'new_vendor_index', show_empty: true do |f| %>
+            <% if f %>
+            <%= render 'vendor_fields', f: f %>
+            <% else %>
+            <p class="empty">There are no vendors.</p>
+        <% end %>
+        <% end %>
+      </ol>
+      <%= nested_fields_templates %>
+      <a href="#" class="vendor-add">Add Vendor</a>
+    </div>
+    <h2>Total</h2>
+    <%= f.text_field :teacher_email, readonly: true, value: 0, id: 'total' %>$
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

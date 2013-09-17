@@ -1,0 +1,15 @@
+<%= form_for @teacher do |f| %>
+<div>
+  Name:
+  <br/>
+  <%=  f.text_field :teacher_name %>
+</div>
+<div>
+  Email:
+  <br/>
+  <%=  f.email_field :teacher_email %>
+</div>
+<div>
+  <%= f.submit "Send mail" %>
+</div>
+<% end %>
