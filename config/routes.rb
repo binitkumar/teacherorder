@@ -7,6 +7,7 @@ TeacherOrder::Application.routes.draw do
       get :register
       get :confirmation
       get :order
+      get :verify_email
     end
   end
 

@@ -17,18 +17,31 @@
 //= require teachers
 //= require_tree .
 
-$(document).ready(function(){
-    $(document).on('change','.quantity',function(){
-        total = 0 ;
-        $(".quantity").each(function(index){
-          current_val = $(this).val();
-          current_val = parseInt(current_val)
-          if( isNaN(current_val) ){
-              $(this).val('');
-          }else{
-              total = total + current_val ;
-          }
-        })
-        $("#total").val(total * 15);
+function update_total(id){
+    container = $("#"+id).parent().parent().parent().parent().parent().parent() ;
+
+    total = 0 ;
+    container.children().find(".quantity").each(function(index){
+      if( parseInt($(this).val())  ){
+        total += parseInt($(this).val());
+      }
+      console.log(total);
     })
-});
+
+    total_container = container.parent().parent().parent().parent().parent().parent().children().find(".total")
+    total_container.val(total * 15 );
+}
+
+$(document).ready(function(){
+  $("#teacher_email_validator").click(function(){
+    email = $("#teacher_email").val();
+    $.get("/teachers/verify_email?email="+email ,function(resp){
+      if( resp == 'true'){
+        alert("Email address validated successfully. You can fill the form now.")
+          $("form").children().find('input').removeAttr("disabled");
+      }else{
+          $("form").children().find('input').attr("disabled", "disabled");
+      }
+    })
+  })
+})

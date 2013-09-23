@@ -97,4 +97,12 @@ class TeachersController < ApplicationController
       render text: "Invalid email", layout: true
     end
   end
+
+  def verify_email
+    if Teacher.find_by_teacher_email( params[:email])
+      render text: true
+    else
+      render text: false
+    end
+  end
 end

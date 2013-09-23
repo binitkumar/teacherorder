@@ -1,6 +1,7 @@
 <%= form_for @order, :html => { :class => "order-form" } do |f| %>
     <h2>Teacher email</h2>
-    <%= f.text_field :teacher_email, readonly: true, value: @teacher.teacher_email %>
+    <%= f.text_field :teacher_email, value: @teacher.teacher_email, id: 'teacher_email' %>
+    <input type="button" id= "teacher_email_validator", value= "Validate email" />
     <div class="field">
       <h2>Vendor</h2>
       <ol class="vendors-container">
@@ -15,8 +16,6 @@
       <%= nested_fields_templates %>
       <a href="#" class="vendor-add">Add Vendor</a>
     </div>
-    <h2>Total</h2>
-    <%= f.text_field :teacher_email, readonly: true, value: 0, id: 'total' %>$
     <div class="actions">
       <%= f.submit %>
     </div>

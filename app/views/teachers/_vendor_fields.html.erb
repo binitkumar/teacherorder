@@ -1,12 +1,15 @@
 <div class="vendor">
+  <table><tr><td>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
-  <br/>
+  </td><td>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
-  <br/>
+  </td><td>
   <%= f.label :teacher_name %>
   <%= f.text_field :teacher_name %>
+  </td></tr>
+  <tr><td colspan=3>
   <h3>Items</h3>
   <div class="nested-level-2">
     <div class="items-container">
@@ -19,7 +22,7 @@
             <%= f.text_field :name %>
             </td><td>
             <%= f.label :quantity %>
-            <%= f.number_field :quantity, class: 'quantity' %>
+            <%= f.number_field :quantity, class: 'quantity', onchange:"update_total(this.id);" %>
               </td><td>
                 <a href="#" class="item-remove">remove</a>
               </td></tr>
@@ -36,10 +39,15 @@
       <% end %>
     </div>
     <br/>
+    <div style="float:right">
+      <h5>Total</h5>
+      <%= f.text_field :total, readonly: true, value: 0, class: 'total' %>$
+    </div>
     <a href="#" class="item-add">Add item</a>
   </div>
   <a href="#" class="vendor-remove">Remove vendor</a>
 
   <%= f.hidden_field :id %>
   <%= f.hidden_field :_destroy %>
+  </td></tr></table>
 </div>
